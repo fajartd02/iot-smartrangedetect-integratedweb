@@ -20,4 +20,17 @@ app.get("/hello", async(req, res) => {
   res.json({message: "Masuk gan!"});
 })
 
+app.post("/add", async(req, res) => {
+  const { range } = req.body;
+  try {
+      await Ranges.create({
+        range: range
+      });
+      res.status(200).json({message: "Berhasi mengirim data!"});
+  } catch(err) {
+    console.log(err);
+    res.json({message: "Error internal"});
+  }
+})
+
 app.listen(PORT, () => console.log("Server running at http://localhost:5000"));
