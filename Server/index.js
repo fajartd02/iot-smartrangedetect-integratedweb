@@ -23,6 +23,9 @@ app.get("/hello", async(req, res) => {
 app.post("/add", async(req, res) => {
   const { range } = req.body;
   try {
+      console.log(req);
+      console.log(req.body);
+      console.log(range);
       await Ranges.create({
         range: range
       });

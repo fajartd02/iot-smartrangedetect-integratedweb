@@ -43,9 +43,16 @@ void postHttp() {
   String jsonParams;
 
   int resultSensor = range_result();
-  buff["range"] = resultSensor;
+  String result = String(resultSensor);
+  buff["range"] = result;
   serializeJson(buff, jsonParams);
   Serial.println(jsonParams);
+
+  http.begin(client, url);
+  http.addHeader("Content-Type", "application/json");
+  http.POST(jsonParams);
+  response = http.getString();
+  Serial.println(response);
 }
 
 void getHttp() {
