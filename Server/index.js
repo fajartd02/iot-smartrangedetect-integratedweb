@@ -1,6 +1,7 @@
 import express from 'express';
 import { Ranges } from './models/Sensor.js';
 import db from './config/Database.js';
+import cors from "cors";
 
 const app = express();
 const PORT = 5000;
@@ -14,6 +15,7 @@ try {
     console.log(err);
 }
 
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(express.json());
 
 app.get("/hello", async(req, res) => {
@@ -23,9 +25,6 @@ app.get("/hello", async(req, res) => {
 app.post("/add", async(req, res) => {
   const { range } = req.body;
   try {
-      console.log(req);
-      console.log(req.body);
-      console.log(range);
       await Ranges.create({
         range: range
       });

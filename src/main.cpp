@@ -26,11 +26,11 @@ void setup() {
   Serial.begin(9600);
   connectWifi();
   // getHttp();
-  postHttp();
 }
 
 void loop() {
-  // delay(5000);
+  delay(2000);
+  // postHttp();
 }
 
 void postHttp() {
