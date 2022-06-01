@@ -90,7 +90,7 @@ function App() {
         </LineChart>
       </ResponsiveContainer>
       <h1>
-        {jarak}
+        {jarak} cm
       </h1>
       <h1>
         <span class="badge rounded-pill bg-secondary">{text}</span>
