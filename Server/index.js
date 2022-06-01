@@ -36,4 +36,15 @@ app.post("/add", async(req, res) => {
   }
 })
 
+app.get("/range", async(req, res) => {
+  try {
+    const range = await Ranges.findAll();
+
+    res.json(range);
+  }
+  catch(err) {
+    console.log(err)
+  }
+});
+
 app.listen(PORT, () => console.log("Server running at http://localhost:5000"));
