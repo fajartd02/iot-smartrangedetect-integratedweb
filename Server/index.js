@@ -47,4 +47,19 @@ app.get("/range", async(req, res) => {
   }
 });
 
+app.get("/range/last", async(req, res) => {
+  try {
+    const lastRange = await Ranges.findOne({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    });
+
+    res.json(lastRange);
+  }
+  catch(err) {
+    console.log(err)
+  }
+});
+
 app.listen(PORT, () => console.log("Server running at http://localhost:5000"));
