@@ -3,7 +3,11 @@
 #include <ESP8266HTTPClient.h>
 #include <WiFiClient.h>
 #include <ArduinoJson.h>
+#define echoPin  D1
+#define trigPin  D2
 
+long duration;
+int distance;
 String wifiSSID = "WULANS";
 String wifiPassword = "21mei2002";
 HTTPClient http;
@@ -12,16 +16,36 @@ unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
 
 void connectWifi();
-void getHttp();
+// void getHttp();
+void postHttp();
+int range_result();
 
 void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
   Serial.begin(9600);
   connectWifi();
-  getHttp();
+  // getHttp();
+  postHttp();
 }
 
 void loop() {
-    
+  // delay(5000);
+}
+
+void postHttp() {
+  String url = "http://192.168.100.89:5000/add";
+  WiFiClient client;
+  HTTPClient http;  
+  String response;
+
+  StaticJsonDocument<200> buff;
+  String jsonParams;
+
+  int resultSensor = range_result();
+  buff["ranges"] = resultSensor;
+  serializeJson(buff, jsonParams);
+  Serial.println(jsonParams);
 }
 
 void getHttp() {
@@ -75,4 +99,19 @@ void connectWifi() {
   }
   Serial.println("Wifi Connnected!");
   Serial.println(WiFi.localIP());
+}
+
+int range_result() {
+  // Clears the trigPin condition
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  // Sets the trigPin HIGH (ACTIVE) for 10 microseconds
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(echoPin, HIGH);
+  // Calculating the distance
+  distance = duration * 0.034 / 2; // Speed of sound wave divided by 2 (go and back)
+  return distance;
 }
