@@ -1,15 +1,18 @@
 import express from 'express';
-// import db from './config/Database.js';
+import { Ranges } from './models/Sensor.js';
+import db from './config/Database.js';
 
 const app = express();
 const PORT = 5000;
 
-// try {
-//     await db.authenticate();
-//     console.log("Database connected");
-// } catch(err) {
-//     console.log(err);
-// }
+try {
+    await db.authenticate();
+    // await Ranges.sync();
+    console.log("Database connected");
+
+} catch(err) {
+    console.log(err);
+}
 
 app.use(express.json());
 

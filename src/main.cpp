@@ -2,6 +2,7 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <WiFiClient.h>
+#include <ArduinoJson.h>
 
 String wifiSSID = "WULANS";
 String wifiPassword = "21mei2002";
@@ -43,6 +44,12 @@ void getHttp() {
         Serial.println(httpResponseCode);
         String payload = http.getString();
         Serial.println(payload);
+
+        StaticJsonDocument<1024> doc;
+        deserializeJson(doc, payload);
+        JsonObject obj = doc.as<JsonObject>();
+        String data = obj["message"];
+        Serial.println(data);
       }
       else {
         Serial.print("Error code: ");
