@@ -37,7 +37,12 @@ app.post("/add", async(req, res) => {
 
 app.get("/range", async(req, res) => {
   try {
-    const range = await Ranges.findAll();
+    const range = await Ranges.findAll({
+      limit: 7,
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    });
 
     res.json(range);
   }
