@@ -1,16 +1,16 @@
-# IoT Smart Range Detect Integrated Web - Water Level Meter
+## IoT Smart Range Detect Integrated Web - Water Level Meter
 Alat untuk deteksi level air 
 menggunakan sensor ultrasonik 
 untuk penghematan air
 
-# Team [Nama - NIM]
+## Team Thunders and Friends [Nama - NIM]
 - Andros Clarence Chen 	2440023886
 - Fajar Muhammad Hamka 	2440113616
 - Naufal Bambang Nugraha 	2440056575
 - Sarwinder 			2440123371
 - Zefany Athalia 		2440034901
 
-# Cara Pengunaan
+## Cara Pengunaan
 - Make sure kalian udah install node.js, platform.io, MySQL, XAMPP
 - Install nodemon
 ```
@@ -37,7 +37,7 @@ npm start
 - Apabila semua sudah dilakukan sesuai intruksi, maka tinggal buka http://localhost:3000/
 - Selesai, kalian bisa melihat monitoring & graphic hasil sensor!
 
-# Tech stacks
+## Tech stacks
 - Platform IO
 - C++
 - Javascript
@@ -51,7 +51,7 @@ npm start
 - Recharts
 - React-dom
 
-# Tools
+## Tools
 - Node MCU
 - Kabel jumper
 - Sensor Ultrasonik
