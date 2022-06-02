@@ -30,8 +30,10 @@ cd npm run dev
 cd client
 npm start
 ```
+- Masuk folder script main.cpp
+  File terdapat di directory src/main.cpp
+- Ubah script main.cpp sesuai dengan ip local, ssid, wifi rumah masing-masing 
 - Upload script main.cpp ke node mcu
- File terdapat di directory src/main.cpp
 - Apabila semua sudah dilakukan sesuai intruksi, maka tinggal buka http://localhost:3000/
 - Selesai, kalian bisa melihat monitoring & graphic hasil sensor!
 
