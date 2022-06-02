@@ -1,7 +1,5 @@
 ## IoT Smart Range Detect Integrated Web - Water Level Meter
-Alat untuk deteksi level air 
-menggunakan sensor ultrasonik 
-untuk penghematan air
+Alat untuk deteksi level air menggunakan sensor ultrasonik untuk penghematan air yang dapat ditrack atau monitoring melalui sebuah website dan dapat dilihat menjadi sebuah grafik serta memberikan warning sesuai dengan keamanan ketinggian air.
 
 ## Team Thunders and Friends [Nama - NIM]
 - Andros Clarence Chen 	2440023886
